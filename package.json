@@ -1,0 +1,27 @@
+{
+  "name": "learn-node",
+  "version": "1.0.0",
+  "description": "Learning Noe",
+  "main": "index.html",
+  "scripts": {
+    "start" : "npm run lite",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lite": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MSAdil/GitTest.git"
+  },
+  "keywords": [
+    "node"
+  ],
+  "author": "Mohd Shareef Adil",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MSAdil/GitTest/issues"
+  },
+  "homepage": "https://github.com/MSAdil/GitTest#readme",
+  "devDependencies": {
+    "lite-server": "^2.5.4"
+  }
+}
