@@ -6,17 +6,57 @@
 
     <!-- inside this div the actual component is defined-->
     <!-- mat-list components is the angular material list component which allows to list down the content-->
-    <mat-list fxFlex>
+    <!--mat-list fxFlex-->
         <!-- here we will use structural directive *ngFor which allows you to iterate over items-->
-        <mat-list-item *ngFor="let dish of dishes">
+        <!--mat-list-item *ngFor="let dish of dishes"-->
             <!--include an image here as matListAvatar-->
-            <img matListAvatar src={{dish.image}} alt={{dish.name}}>
-            <h1 matLine> {{dish.name}} </h1> <!--matLine tag allows a line-->
-            <p matLine>
-                <span>
-                    {{dish.description}}
+            <!--img matListAvatar src={{dish.image}} alt={{dish.name}}>
+            <h1 matLine> {{dish.name}} </h1> <matLine tag allows a line-->
+            <!--p matLine-->
+                <!--span-->
+                    <!--{{dish.description}}
                 </span>
             </p>
         </mat-list-item>
-    </mat-list>
+    </mat-list-->
+
+    <!-- Angular Component tutorial 2-->
+    <div fxFlex>
+        <div>
+            <h3> Menu </h3>
+            <hr> <!-- Add a horizontal line -->
+        </div>
+    </div>
+    <div fxFlex>
+        <!--we will use mat grid list to make a grid insted of a top down list-->
+        <mat-grid-list cols="2" rowHeight="200px"><!--the cols specifies the columns of grid and rowHeight specifies the width-->
+            <mat-grid-tile *ngFor = "let dish of dishes">
+                <img height="200px" src={{dish.image}} alt={{dish.name}}> <!--instead of matListAvatar we will use height of the image-->
+                <mat-grid-tile-footer><!--matgrid-tile-footer will write on the foot of each tile of a grid-->
+                    <h1>{{dish.name | uppercase}}</h1><!--here one angular pipe | is used which modifies the name to uppercase-->
+                </mat-grid-tile-footer>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+    <!--Here we will add a card to display some item-->
+    <div fxFlex *ngIf = "selectedDish"><!--Condition is on the selectedDish, if its not null it will be added to te card element-->
+        <mat-card>
+            <!--mat-card element is used to design a card which has header and content-->
+            <mat-card-header>
+                <h3>{{selectedDish.name | uppercase}}</h3>
+            </mat-card-header>
+            <img mat-card-image src={{selectedDish.image}} alt={{selectedDish.name}}>
+            <mat-card-content>
+                <!--in the content, seleced dish description is included-->
+                <p>{{selectedDish.description}}</p>
+            </mat-card-content>
+            <mat-card-actions>
+                <!--here we will define actions, for example action on buttons-->
+                <button mat-button>Like</button>
+                <button mat-button>Share</button>
+            </mat-card-actions>
+        </mat-card>
+
+    </div>
+
 </div>
