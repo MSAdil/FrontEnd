@@ -1,0 +1,22 @@
+<!-- Here we will define the layout of the menu-->
+
+<!-- start with div and defiine a class container, fxLayout specifies the layout(vertical or horizontal)-->
+<!--fxLayoutGap defines the gap between the displayed content in pixels-->
+<div class="container" fxLayout="column" fxLayoutGap="10px">
+
+    <!-- inside this div the actual component is defined-->
+    <!-- mat-list components is the angular material list component which allows to list down the content-->
+    <mat-list fxFlex>
+        <!-- here we will use structural directive *ngFor which allows you to iterate over items-->
+        <mat-list-item *ngFor="let dish of dishes">
+            <!--include an image here as matListAvatar-->
+            <img matListAvatar src={{dish.image}} alt={{dish.name}}>
+            <h1 matLine> {{dish.name}} </h1> <!--matLine tag allows a line-->
+            <p matLine>
+                <span>
+                    {{dish.description}}
+                </span>
+            </p>
+        </mat-list-item>
+    </mat-list>
+</div>
