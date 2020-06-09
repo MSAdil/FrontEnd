@@ -6,7 +6,7 @@
 // colors available here are primary color, excent and warning colors, and you can also build your own angular material theme
 // here we will import the prebuild theme called deep purple  
 
-@import '~@angular/material/prebuilt-themes/purple-green'; // check and you can select any theme form the particular folder
+@import '~@angular/material/prebuilt-themes/indigo-pink'; // check and you can select any theme form the particular folder
 
 // now we will specify some Global style variables for the body content of index.html page 
 
@@ -14,4 +14,10 @@ body{
     padding : 0;
     margin : 0;
     font-family : Roboto, sans-serif;
+}
+
+// container class is defined here for the conatiners
+.container {
+    margin: 20px;
+    display: flex;
 }
