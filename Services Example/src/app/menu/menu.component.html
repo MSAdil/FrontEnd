@@ -1,0 +1,44 @@
+<!-- Here we will define the layout of the menu-->
+
+<!-- start with div and defiine a class container, fxLayout specifies the layout(vertical or horizontal)-->
+<!--fxLayoutGap defines the gap between the displayed content in pixels-->
+<div class="container" fxLayout="column" fxLayoutGap="10px">
+
+    <!-- inside this div the actual component is defined-->
+    <!-- mat-list components is the angular material list component which allows to list down the content-->
+    <!--mat-list fxFlex-->
+        <!-- here we will use structural directive *ngFor which allows you to iterate over items-->
+        <!--mat-list-item *ngFor="let dish of dishes"-->
+            <!--include an image here as matListAvatar-->
+            <!--img matListAvatar src={{dish.image}} alt={{dish.name}}>
+            <h1 matLine> {{dish.name}} </h1> <matLine tag allows a line-->
+            <!--p matLine-->
+                <!--span-->
+                    <!--{{dish.description}}
+                </span>
+            </p>
+        </mat-list-item>
+    </mat-list-->
+
+    <!-- Angular Component tutorial 2-->
+    <div fxFlex>
+        <div>
+            <h3> Menu </h3>
+            <hr> <!-- Add a horizontal line -->
+        </div>
+    </div>
+    <div fxFlex>
+        <!--we will use mat grid list to make a grid insted of a top down list-->
+        <mat-grid-list cols="2" rowHeight="200px"><!--the cols specifies the columns of grid and rowHeight specifies the width-->
+            <mat-grid-tile *ngFor = "let dish of dishes" (click)="onSelect(dish)"> <!-- Define a click event here-->
+                <img height="200px" src={{dish.image}} alt={{dish.name}}> <!--instead of matListAvatar we will use height of the image-->
+                <mat-grid-tile-footer><!--matgrid-tile-footer will write on the foot of each tile of a grid-->
+                    <h1>{{dish.name | uppercase}}</h1><!--here one angular pipe | is used which modifies the name to uppercase-->
+                </mat-grid-tile-footer>
+            </mat-grid-tile>
+        </mat-grid-list>
+    </div>
+
+    <!--To the menu component template file, add a dishdetailcomponent-->
+    <app-dishdetail [dish] = "selectedDish"></app-dishdetail>
+</div>
