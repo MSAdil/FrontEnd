@@ -1,0 +1,54 @@
+<div class="container"
+    fxLayout="row"
+    fxLayout.sm="column"
+    fxLayout.xs="column"
+    fxLayoutAlign.gt-md="space-around center"
+    fxLayoutGap="10px" 
+    fxLayoutGap.xs="0">
+
+  <div fxFlex="40">
+    <div fxFlex *ngIf = "dish"><!--Condition is on the selectedDish, if its not null it will be added to te card element-->
+        <mat-card>
+            <!--mat-card element is used to design a card which has header and content-->
+            <mat-card-header>
+                <h3>{{dish.name | uppercase}}</h3>
+            </mat-card-header>
+            <img mat-card-image src={{dish.image}} alt={{dish.name}}>
+            <mat-card-content>
+                <!--in the content, seleced dish description is included-->
+                <p>{{dish.description}}</p>
+            </mat-card-content>
+            <mat-card-actions>
+                <!--here we will define actions, for example action on buttons-->
+                <button mat-button>Like</button>
+                <button mat-button>Share</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+  </div>
+
+  <div fxFlex="40">
+    <div fxFlex *ngIf = "dish"><!--Condition is on the selectedDish, if its not null it will be added to te card element-->
+        <mat-card>
+            <!--mat-card element is used to design a card which has header and content-->
+            <mat-card-header>
+                <h3>Comments</h3>
+            </mat-card-header>
+            
+            <mat-card-content>
+                <!--in the content, seleced dish description is included-->
+                <mat-list-item *ngFor="let comment of dish.comments">
+                    <p matLine>{{comment.comment}} 
+                        <br> {{comment.rating}} Stars
+                        <br> -- {{comment.author}} {{comment.date | date}}
+                    </p>
+                </mat-list-item>
+            </mat-card-content>
+
+        </mat-card>
+
+    </div>
+
+  </div>
+
+</div>
